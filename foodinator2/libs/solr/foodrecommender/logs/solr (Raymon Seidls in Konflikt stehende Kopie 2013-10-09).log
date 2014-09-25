@@ -1,0 +1,24 @@
+INFO  - 2013-10-09 10:44:03.185; org.apache.solr.core.CoreContainer; Shutting down CoreContainer instance=1611113200
+INFO  - 2013-10-09 10:44:03.187; org.apache.solr.core.SolrCore; [searchqueries]  CLOSING SolrCore org.apache.solr.core.SolrCore@5e0a614c
+INFO  - 2013-10-09 10:44:03.188; org.apache.solr.update.DirectUpdateHandler2; closing DirectUpdateHandler2{commits=0,autocommits=0,soft autocommits=0,optimizes=0,rollbacks=0,expungeDeletes=0,docsPending=0,adds=0,deletesById=0,deletesByQuery=0,errors=0,cumulative_adds=0,cumulative_deletesById=0,cumulative_deletesByQuery=0,cumulative_errors=0}
+INFO  - 2013-10-09 10:44:03.191; org.apache.solr.update.SolrCoreState; Closing SolrCoreState
+INFO  - 2013-10-09 10:44:03.192; org.apache.solr.update.DefaultSolrCoreState; SolrCoreState ref count has reached 0 - closing IndexWriter
+INFO  - 2013-10-09 10:44:03.194; org.apache.solr.update.DefaultSolrCoreState; closing IndexWriter with IndexWriterCloser
+INFO  - 2013-10-09 10:44:03.197; org.apache.solr.core.SolrCore; [searchqueries] Closing main searcher on request.
+INFO  - 2013-10-09 10:44:03.203; org.apache.solr.core.CachingDirectoryFactory; Closing NRTCachingDirectoryFactory - 2 directories currently being tracked
+INFO  - 2013-10-09 10:44:03.220; org.apache.solr.core.CachingDirectoryFactory; looking to close E:\Dropbox\Dropbox\Rezept Recommender\Neuer Ordner\lib\solr\foodrecommender\solr\searchqueries\data\index [CachedDir<<refCount=0;path=E:\Dropbox\Dropbox\Rezept Recommender\Neuer Ordner\lib\solr\foodrecommender\solr\searchqueries\data\index;done=false>>]
+INFO  - 2013-10-09 10:44:03.222; org.apache.solr.core.CachingDirectoryFactory; Closing directory: E:\Dropbox\Dropbox\Rezept Recommender\Neuer Ordner\lib\solr\foodrecommender\solr\searchqueries\data\index
+INFO  - 2013-10-09 10:44:03.223; org.apache.solr.core.CachingDirectoryFactory; looking to close E:\Dropbox\Dropbox\Rezept Recommender\Neuer Ordner\lib\solr\foodrecommender\solr\searchqueries\data [CachedDir<<refCount=0;path=E:\Dropbox\Dropbox\Rezept Recommender\Neuer Ordner\lib\solr\foodrecommender\solr\searchqueries\data;done=false>>]
+INFO  - 2013-10-09 10:44:03.225; org.apache.solr.core.CachingDirectoryFactory; Closing directory: E:\Dropbox\Dropbox\Rezept Recommender\Neuer Ordner\lib\solr\foodrecommender\solr\searchqueries\data
+INFO  - 2013-10-09 10:44:03.226; org.apache.solr.core.SolrCore; [food]  CLOSING SolrCore org.apache.solr.core.SolrCore@7b79f4cf
+INFO  - 2013-10-09 10:44:03.228; org.apache.solr.update.DirectUpdateHandler2; closing DirectUpdateHandler2{commits=0,autocommits=0,soft autocommits=0,optimizes=0,rollbacks=0,expungeDeletes=0,docsPending=0,adds=0,deletesById=0,deletesByQuery=0,errors=0,cumulative_adds=0,cumulative_deletesById=0,cumulative_deletesByQuery=0,cumulative_errors=0}
+INFO  - 2013-10-09 10:44:03.229; org.apache.solr.update.SolrCoreState; Closing SolrCoreState
+INFO  - 2013-10-09 10:44:03.231; org.apache.solr.update.DefaultSolrCoreState; SolrCoreState ref count has reached 0 - closing IndexWriter
+INFO  - 2013-10-09 10:44:03.232; org.apache.solr.update.DefaultSolrCoreState; closing IndexWriter with IndexWriterCloser
+INFO  - 2013-10-09 10:44:03.234; org.apache.solr.core.SolrCore; [food] Closing main searcher on request.
+INFO  - 2013-10-09 10:44:03.238; org.apache.solr.core.CachingDirectoryFactory; Closing NRTCachingDirectoryFactory - 2 directories currently being tracked
+INFO  - 2013-10-09 10:44:03.239; org.apache.solr.core.CachingDirectoryFactory; looking to close E:\Dropbox\Dropbox\Rezept Recommender\Neuer Ordner\lib\solr\foodrecommender\solr\food-evaluation\data [CachedDir<<refCount=0;path=E:\Dropbox\Dropbox\Rezept Recommender\Neuer Ordner\lib\solr\foodrecommender\solr\food-evaluation\data;done=false>>]
+INFO  - 2013-10-09 10:44:03.240; org.apache.solr.core.CachingDirectoryFactory; Closing directory: E:\Dropbox\Dropbox\Rezept Recommender\Neuer Ordner\lib\solr\foodrecommender\solr\food-evaluation\data
+INFO  - 2013-10-09 10:44:03.242; org.apache.solr.core.CachingDirectoryFactory; looking to close E:\Dropbox\Dropbox\Rezept Recommender\Neuer Ordner\lib\solr\foodrecommender\solr\food-evaluation\data\index [CachedDir<<refCount=0;path=E:\Dropbox\Dropbox\Rezept Recommender\Neuer Ordner\lib\solr\foodrecommender\solr\food-evaluation\data\index;done=false>>]
+INFO  - 2013-10-09 10:44:03.244; org.apache.solr.core.CachingDirectoryFactory; Closing directory: E:\Dropbox\Dropbox\Rezept Recommender\Neuer Ordner\lib\solr\foodrecommender\solr\food-evaluation\data\index
+INFO  - 2013-10-09 10:44:03.248; org.eclipse.jetty.server.handler.ContextHandler; stopped o.e.j.w.WebAppContext{/solr,file:/E:/Dropbox/Dropbox/Rezept%20Recommender/Neuer%20Ordner/lib/solr/foodrecommender/solr-webapp/webapp/},E:\Dropbox\Dropbox\Rezept Recommender\Neuer Ordner\lib\solr\foodrecommender/webapps/solr.war

@@ -1,0 +1,11 @@
+<dataConfig>
+<dataSource name="ds1" type="FileDataSource" />
+<document>
+<entity name="queries" processor="LineEntityProcessor"
+url="logs/csvqueries.csv"
+dataSource="ds1"
+transformer="RegexTransformer">
+<field column="rawLine" regex="^(.*),(.*)$" groupNames="count,query"/>
+</entity>
+</document>
+</dataConfig>

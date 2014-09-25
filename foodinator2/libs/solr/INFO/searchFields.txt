@@ -1,0 +1,12 @@
+Felder für die Suche:
+name - name des Rezepts
+type - mainmeal, breakfast,  
+rating - rating zw. 0 und 50 (sFloat, sollte sint werden)
+ratingCount - Menge der Ratings (sint)
+rid - RezeptID für interne zwecke
+ingredient - Array der Zutaten
+portiontype - Array der Art der Menge der Zutat (gramm, liter etc)
+portionsize - Array der Menge der Zutat
+reqskill - SKILL!
+timeWork, timeRest, timeCook, timeRecipe - integerfür verschiedene Zeiten
+vegetarian, diabetus, vegan, sportsman, gluten, lactose, pork, beef, antialc - boolean für verschiedene optionen

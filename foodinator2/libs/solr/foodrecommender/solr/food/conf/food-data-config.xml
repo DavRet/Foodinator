@@ -1,0 +1,34 @@
+<dataConfig> 
+<dataSource name="mysql" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://192.168.200.31/foodrecommender" user="food" password="food" batchSize="-1" /> 
+<document> 
+<!--><entity name="recipes" dataSource="mysql" query="SELECT FR_Recipes.ID ID, FR_Recipes.Recipe_ID Recipe_ID, FR_Recipes.Instructions Instructions, FR_Recipes.Title Title, FR_Recipes.Type Type, FR_Recipes.UserRating Rating, FR_Recipes.NumUserRatings NumUserRatings From FR_Recipes LIMIT 100"> -->
+<entity name="recipes" dataSource="mysql" query="Select FR_Recipes.ID, FR_Recipes.Recipe_ID Recipe_ID, FR_Recipes.Instructions, FR_Recipes.Title, FR_Recipes.NumUserRatings, FR_Recipes.Type, FR_Recipes.UserRating Rating, FR_Recipes.RequiredSkill, FR_Recipes.TimeToWork, FR_Recipes.TimeToRest, FR_Recipes.TimeToCook, FR_Recipes.RecipeTime, FR_Recipes.Vegetarian, FR_Recipes.Diabetus, FR_Recipes.Vegan, FR_Recipes.Sportsman, FR_Recipes.Gluten, FR_Recipes.Lactose, FR_Recipes.Pork, FR_Recipes.Beef, FR_Recipes.Antialc From FR_Recipes WHERE FR_Recipes.ID IN (13,37,44,47,60,69,101,141,145,151,152,153,162,185,198,200,229,267,287,295,317,319,340,356,378,428,430,488,524,589,607,614,682,792,818,833,846,862,864,868,890,926,990,1027,1195,1368,1384,1461,1466,1577,1596,1674,1822,1848,1890,1897,2019,2248,2640,2801,2819,2923,3187,3289,3484,3592,3733,4132,4699,4843,5290,5560,7084,7599,7690,8006,8345,9499,10499,10533,10571,11912,12907,16498,17003,17500,18717,19398,20028,20253,24101,24384,28571,28588,30281,32208,35938,36105,38471,39679)">
+<field column="Recipe_ID" name="rid"/>
+<field column="Title" name="name"/>
+<field column="Instructions" name="instructions"/>
+<field column="ID" name="id"/>
+<field column="Type" name="type"/>
+<field column="Rating" name="rating"/>
+<field column="NumUserRatings" name="ratingCount"/>
+<field column="RequiredSkill" name="reqSkill"/>
+<field column="TimeToWork" name="timeWork"/>
+<field column="TimeToRest" name="timeRest"/>
+<field column="TimeToCook" name="timeCook"/>
+<field column="RecipeTime" name="timeRecipe"/>
+<field column="Vegetarian" name="vegetarian"/>
+<field column="Diabetus" name="diabetus"/>
+<field column="Vegan" name="vegan"/>
+<field column="Sportsman" name="sportsman"/>
+<field column="Gluten" name="gluten"/>
+<field column="Lactose" name="lactose"/>
+<field column="Pork" name="pork"/>
+<field column="Beef" name="beef"/>
+<field column="Antialc" name="antialc"/>
+<entity name="ingredients" dataSource="mysql" query="SELECT FR_Ingredients.Name AS ingredient,FR_Ingredients.Portion_value as value, FR_Ingredients.Portion_type as ptype FROM FR_Ingredients WHERE FR_Ingredients.Recipe_ID = '${recipes.Recipe_ID}'">
+<field column="ingredient" name="ingredient"/>
+<field column="value" name="portionsize"/>
+<field column="ptype" name="portiontype"/>
+</entity>
+</entity>
+</document> 
+</dataConfig>

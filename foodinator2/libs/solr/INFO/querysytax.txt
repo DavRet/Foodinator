@@ -1,0 +1,28 @@
+﻿http://localhost:8983/solr/food/select?q=*%3A*&fq=vegan%3Atrue&fq=type%3Abreakfast&fq=rating%3A%5B43+TO+*%5D&wt=json&indent=true
+
+HTML Codes: %2C = ,
+
+Suche nach Feld (boolean, Range vom Rating)
+&fq=vegetarian:true
+    rating:[45 TO 50]
+	
+im Solr Dashboard: &fq=timeRecipe:[140 TO 300] 
+liefert Ergebnisse mit timeRecipe: 20 oder 30 .... was is falsch??
+
+
+Sortiere nach Rating:
+&sort=rating+desc
+
+sortiere erst nach Menge der Ratings, dann nach Rating:
+&sort=ratingCount+desc%2C+r&sort=rating+desc
+
+gebe nur id, name, rating und Zeit aus:
+&fl=id%2Cname%2Crating%2CtimeRecipe
+
+starte bei ergebnis 0 und zeige 10 an (beides belibig änderbar):
+&start=0&rows=10
+
+statistics!
+http://localhost:8983/solr/food/select?q=*:*&stats=true&stats.field=rating&stats.field=ratingCount&rows=0&indent=true
+
+stats für Rating und ratingCount (Menge, Median etc)
