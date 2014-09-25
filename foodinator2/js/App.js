@@ -19,6 +19,8 @@ var navbarMiddleStyle = function() {
 	var cloud_nav = document.getElementById("cloud_search_nav");
 	var profile_nav = document.getElementById("profile_nav");
 
+    // test
+
 	if (startseiteAngezeigt) {
 		home_nav.style.color = "#99cc67";
 		home_nav.style.backgroundColor = "#336601";
