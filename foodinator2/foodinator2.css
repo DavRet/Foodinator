@@ -1,0 +1,530 @@
+body {
+	background-image:url('img/korkbg.jpg');
+	background-repeat: repeat;
+	font-family: "HelveticaNeue-Light";
+
+}
+
+body #content {
+	width: 1000px;
+	margin:0px auto;
+}
+
+body #header {
+	position: static;
+	height: 105px;
+	padding: 10px;
+	margin: 0px;
+	display:block;
+
+	border-color: #336601;
+  	border-style:solid;
+  	border-width:5px 5px 0px 5px; 
+
+  	background-color:#99cc67;
+  	font-size:1em;
+  	line-height:40px;
+  	color:rgb(90,90,90);
+}
+
+body #header #picture {
+    background-position: left-top;
+    float: left;
+    max-height: 100%;
+    padding-left: 20px; 
+}
+
+body #searchfield_header {
+	height: 85px;
+	width: 460px;
+
+	padding: 10px 10px 10px 20px;
+	margin: 0px;
+
+	display: block;
+	position: relative;
+	border-radius: 7px;
+
+	float: right;
+
+	background-color: #336601;
+}
+
+body #searchfield_header #recipe_input {
+	border: 0;
+	border-radius: 7px;
+    padding: 7px;
+    margin: 0;
+    background: #FFF1D2;
+    font: "HelveticaNeue-Light";
+}
+
+body #searchfield_header #recipe_input:focus {
+	outline: none;
+    box-shadow: 0 0 12px #ffff99;
+}
+
+body #searchfield_header #cloud_search_ad_text {
+	display: inline-block;
+	position: relative;
+	margin:0px;
+	color: #ffff99;
+	text-decoration: none;
+	padding-right: 20px;
+}
+
+body #header #normal_search_button, #cloud_search_button {
+	padding:4px 15px 4px 15px;
+  	border: 1px solid #336601 ;
+  	border-radius: 7px;
+  	color:#336601;
+  	text-decoration:none;
+
+  	font-size: 15px;
+  	font-family: "HelveticaNeue-Light";
+
+
+	background-color: #99cc67;
+	background-size: 20px;
+
+	padding-right: 40px;
+	padding-left: 30px;
+
+	background-image: url(img/magnifier.png);
+	background-repeat: no-repeat;
+	background-position: right;
+
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+body #normal_search_button:hover, #cloud_search_button:hover, #register_button:hover, #login_button:hover, #filter_button:hover, #logout_button:hover,#zutaten_rating_button:hover, #favoriten_button:hover{
+	outline: none;
+    box-shadow: 0 0 12px #ffff99;
+}
+
+body #normal_search_button:active, #cloud_search_button:active, #register_button:active, #login_button:active, #filter_button:active, #logout_button:active, #zutaten_rating_button:active, #favoriten_button:active{
+	outline: none;
+    box-shadow: 0 0 12px #E8B92D;
+}
+
+body #navbar_middle {
+	border-color:#336601;
+  	border-style:solid;
+  	border-width:1px 5px 0px 5px; 
+  	margin: 0px;
+}
+
+body #navbar_middle ul {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body #navbar_middle li {
+    float: left;
+}
+
+body #navbar_middle a:link, a:visited {
+    display: block;
+    width: 239.5px;
+    background-color: #99cc67;
+    text-align: center;
+    color: #336601;
+    padding: 14px 4px 14px 4px;
+    text-decoration: none;
+}
+
+
+body #navbar_middle a:hover, a:active {
+    background-color: #336601;
+    color: #99cc67;
+}
+
+/* NAVBAR LEFT NOT LOGGED IN */
+
+body #navbar_left {
+	height: 892px;
+	width: 163px;
+
+	padding: 20px;
+	float: left;
+	display: block;
+	
+	background-color: #336601;
+}
+
+body #navbar_left .navbar_text {
+	padding-bottom: 10px;
+	display: inline-block;
+	color: #ffff99;
+}
+
+body #navbar_left .navbar_input{
+	width: 150px;
+	border: 0;
+	border-radius: 7px;
+	padding: 5px;
+	margin: 5px auto;
+    background: #FFF1D2;
+    font: "HelveticaNeue-Light";
+}
+
+body #navbar_left .navbar_input:focus {
+	outline: none;
+    box-shadow: 0 0 12px #ffff99;
+}
+
+
+body #navbar_left a:link, a:visited{
+    text-decoration: none;
+    color: #336601;
+    text-align: center;
+    display: block;
+
+    
+
+    padding:10px 0px 10px 0px;
+  	background-color: #99cc67;
+  	border: 1px solid #336601;
+  	border-radius: 7px;
+  	color:#336601;
+  	text-decoration:underline;
+}
+
+body #navbar_left #login_button, #navbar_left #filter_button {
+	width: 160px;
+	height: 30px;
+	margin: 5px 0px 20px 0px;
+
+	background-color: #99cc67;
+	background-size: 20px;
+
+  	border: 1px solid #336601 ;
+  	border-radius: 7px;
+  	color:#336601;
+  	text-decoration:none;
+
+  	font-size: 15px;
+	font-family: "HelveticaNeue-Light";
+	text-align: center;
+	vertical-align: middle;
+
+	cursor: pointer;
+}
+
+/* NAVBAR_LEFT_RECIPE_SEARCH */
+
+
+body #navbar_left .navbar_left_recipefilter {
+	padding-bottom: 10px;
+	display: inline-block;
+	color: #ffff99;
+	text-decoration: underline;
+}
+
+body #aufwand_text, #menueart_text, #rating_text, #dauer_text {
+	padding: 0px 0px 10px 10px;
+}
+
+body .navabar_left_recipefilter_auswahl {
+    display: block;
+    padding-left: 15px;
+    text-indent: -15px;
+    color: #99cc67;
+}
+body .checkbox{
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin:0;
+    vertical-align: center;
+    position: relative;
+    top: -1px;
+    overflow: hidden;
+}
+
+body .daumen_picture {
+	height: 30px;
+} 
+
+/* NAVBAR_LEFT_LOGGED_IN */
+
+body #profile_picture {
+	width: 65px;
+	height: 80px;
+	float: left;
+
+	border: 3px solid #99cc67 ;
+  	border-radius: 7px;
+  	text-decoration:none;
+  	overflow: hidden;
+
+  	padding: 5px;
+}
+
+body #logout_button {
+	margin: 17px 0px 0px 7px;
+	padding: 2px 0px 4px 0px;
+	width: 75px;
+}
+
+body #zutaten_rating_button, #favoriten_button {
+	margin-top: 10px; 
+	width: 163px;
+}
+
+body #welcome_text_1 {
+	font-size: 14px;
+	padding-left: 11px;
+	color: #ffff99;
+}
+
+body #welcome_text_2  {
+	font-size: 14px;
+	padding-left: 18px;
+	color: #ffff99;
+}
+
+body #user_name {
+	font-weight: bold;
+	font-size: 10px;
+	padding-left: 16px;
+	color: #99cc67;
+}
+
+body #zutaten_rating_button, #favoriten_button, #logout_button {
+	background-color: #99cc67;
+
+  	border: 1px solid #336601 ;
+  	border-radius: 7px;
+  	color:#336601;
+  	text-decoration:none;
+
+  	font-size: 15px;
+	font-family: "HelveticaNeue-Light";
+	text-align: center;
+	vertical-align: middle;
+
+	cursor: pointer;
+}
+
+
+
+/* FOOTER */
+
+body #footer {
+	clear: both;
+	height 100px;
+	width: 970px;
+	background-color: #99cc67;
+
+	font-size: 15px;
+	color: #336601;
+
+	padding: 10px;
+
+	border-color:#336601;
+  	border-style:solid;
+  	border-width:1px 5px 5px 5px; 
+} 
+
+
+
+/* CONTENT MAIN SIDE */
+
+body #website_content {
+	float:right;
+	height: 930px;
+	width: 792px;
+	background-color: #ffff99;
+	margin: 0px auto;
+
+	border-color: #336601;
+  	border-style:solid;
+  	border-width:1px 5px 0px 0px; 
+}
+
+body #startseiten_inhalt {
+	margin: 15px;
+}
+
+body #gerichte_text {
+	margin-left: 15px;
+	color:#336601;
+	font-size: 15px;
+}
+
+body .gericht_container {
+	padding: 15px 10px 0px 10px;
+	border-color:#336601;
+  	border-style:solid;
+  	border-width:1px; 
+  	border-radius: 7px;
+
+  	background-color: #99cc67;
+  	text-align: center;
+  	color:#336601;
+}
+
+body #shuffle_button {
+	width: 740px;
+	height: 40px;
+	margin: 10px;
+
+	background-color: #336601;
+	background-size: 20px;
+
+  	border: 3px solid #336601 ;
+  	border-radius: 7px;
+  	color:#99cc67;
+  	text-decoration:none;
+
+  	font-size: 15px;
+	font-family: "HelveticaNeue-Light";
+	text-align: center;
+	vertical-align: middle;
+
+	cursor: pointer;
+
+	background-image: url(img/refresh_icon.png);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+body #hauptspeisen{
+	margin: 20px 10px 10px 10px;
+	display: block; 
+	clear: both;
+	overflow: hidden;
+
+}
+
+body #nachspeisen, #vorspeisen {
+	width: 338px;
+	margin: 10px;
+	float: left;
+}
+
+
+body #hauptspeisen .gericht {
+	float: left;
+	text-align: center;
+	display: block;
+	width: 300px;
+	padding: 5px 0px 5px 0px;
+	text-decoration: none;
+}
+
+
+body #nachspeisen .gericht, #vorspeisen .gericht {
+	display: block;
+	text-align: center;
+
+	padding: 5px 30px 5px 0px;
+}
+
+body  #vorspeisen_header, #nachspeisen_header, #hauptspeisen_header {
+	font-size: 18px;
+	border: 3px solid #336601 ;
+  	border-radius: 7px;
+  	color:#99cc67;
+  	background-color: #336601;
+  	font-family: "HelveticaNeue-Light";
+}
+
+body #vorspeisen_header:hover, #nachspeisen_header:hover, #hauptspeisen_header:hover {
+	color: #336601;
+	background-color: #99cc67;
+	outline: none;
+    box-shadow: 0 0 12px #ffff99;
+    cursor: pointer;
+}
+
+body  #shuffle_button:hover { 
+	outline: none;
+    box-shadow: 0 0 12px #ffff99;
+}
+
+body #vorspeisen_header {
+	padding: 0px 123px 0px 123px;
+}
+
+body #nachspeisen_header {
+	padding: 0px 115px 0px 115px;
+}
+
+body #hauptspeisen_header {
+	padding: 0px 300px 0px 300px;
+}
+
+body .gericht_container ul {
+	border: 3px solid #336601 ;
+  	border-radius: 7px;
+  	color:#336601;
+  	text-decoration:none;
+  	overflow: hidden;
+}
+
+body .gericht_container li {
+	display: inline;	
+}
+
+body .gericht_container a:hover {
+	color:#99cc67;
+	background-color: #336601;
+	cursor: pointer;
+}
+
+body .gericht_container a:active {
+	outline: none;
+    box-shadow: 0 0 12px #E8B92D;
+    cursor: pointer;
+}
+
+
+body #hauptspeise_gericht1, #hauptspeise_gericht3, #hauptspeise_gericht5 {
+	border-right: 3px solid #336601;
+} 
+
+/* CONTENT_RECIPE_SEARCH */
+
+body #resultpage_inhalt {
+	border: 3px solid #336601 ;
+  	border-radius: 7px;
+  	color:#336601;
+  	text-decoration:none;
+  	overflow: hidden;
+
+  	padding: 15px;
+  	margin:15px;
+}
+
+body #rezept_bild, #rezept_rating { 
+	width: 100px;
+	height: 80px;
+	float:left;
+}
+
+body #rezept_ergebnis {
+	float:left;
+	overflow: hidden;
+}
+body #rezept_name {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+body .menuepunkt {
+	padding: 0px 15px 5px 15px;
+	display: inline-block;
+}
+
+
+
+
+
+
+
+
