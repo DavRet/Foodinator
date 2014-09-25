@@ -10,6 +10,8 @@ function Rezept(name, rating, aufwand, menueart) {
   this.rating = rating;
   this.aufwand = aufwand;
   this.menueart = menueart;
+
+  //test
 }
 
 // Hier wird der angezeigte Menüpunkt der Navigationsleiste (Startseite/Rezepte/CloudSearch/Profil) gekennzeichnet
