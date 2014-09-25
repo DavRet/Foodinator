@@ -22,6 +22,7 @@ var navbarMiddleStyle = function() {
 	var profile_nav = document.getElementById("profile_nav");
 
     // test
+    //test 2.0
 
 	if (startseiteAngezeigt) {
 		home_nav.style.color = "#99cc67";
