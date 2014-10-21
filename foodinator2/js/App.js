@@ -5,13 +5,13 @@ var rezepteseiteAngezeigt = false;
 var cloudsearchseiteAngezeigt = false;
 var profilseiteAngezeigt = false;
 
+var newRandom = ["Gulasch","Schnitzel","Suppe","Salat","Reis","Nudeln"];
+
 function Rezept(name, rating, aufwand, menueart) {
   this.name = name;
   this.rating = rating;
   this.aufwand = aufwand;
   this.menueart = menueart;
-
-  //test test test test
 }
 
 // Hier wird der angezeigte Menüpunkt der Navigationsleiste (Startseite/Rezepte/CloudSearch/Profil) gekennzeichnet
@@ -82,24 +82,24 @@ var updateRandomSpeisen = function() {
 //Hier muss noch ein RandomGenerator rein der aus der Datenbank random Hauptspeisen reinlädt
 var updateHauptspeisen = function() {
 		for (i = 1; i < 7; i++) {
-		document.getElementById("hauptspeise_gericht" + i).innerHTML = newRandom + i;
+		document.getElementById("hauptspeise_gericht" + i).innerHTML = newRandom[i];
 		}
 }
 
 //Hier muss noch ein RandomGenerator rein der aus der Datenbank random Nach/Vorspeisen reinlädt
 var updateVorspeisenAndNachspeisen = function() {
 		for (i = 1; i < 5; i++) {
-			document.getElementById("nachspeise_gericht" + i).innerHTML = newRandom + i;
+			document.getElementById("nachspeise_gericht" + i).innerHTML = newRandom[i];
 		};
 		for (i = 1; i < 5; i++) {
-			document.getElementById("vorspeise_gericht" + i).innerHTML = newRandom + i;
+			document.getElementById("vorspeise_gericht" + i).innerHTML = newRandom[i];
 		};
 }
 
 //Wenn der Shuffle Button geklickt wird, werden durch updateHauptspeisen und updateVorspeisenAndNachspeisen erneut random Gerichte geladen
 var onShuffleButtonClicked = function() {
+    console.log("shuffle");
 		document.getElementById("shuffle_button").onclick = function() {
-		newRandom = "anderesRandom";
 		updateRandomSpeisen();
 	}
 }
@@ -196,7 +196,7 @@ var App = {
 	setRezepteErgebnissSeite();
 
 	navbarMiddleStyle();
-	updateRandomSpeisen();
+	//updateRandomSpeisen();
 	
 
 
