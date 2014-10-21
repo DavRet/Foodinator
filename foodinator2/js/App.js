@@ -111,6 +111,9 @@ var onRecipeSearchButtonClicked = function() {
 		cloudsearchseiteAngezeigt = false;
 		profilseiteAngezeigt = false;
 		navbarMiddleStyle();
+
+        document.getElementById('resultpage_inhalt').style.display = 'block';
+        document.getElementById('startseiten_inhalt').style.display = 'none';
 	}
 }
 
@@ -144,8 +147,8 @@ var recipeNavClicked = function() {
         profilseiteAngezeigt = false;
         navbarMiddleStyle();
 
-        document.getElementById('resultpage_inhalt').style.display = 'block';
-        document.getElementById('startseiten_inhalt').style.display = 'none';
+        setRezepteErgebnissSeite();
+
     });
 }
 
@@ -157,12 +160,30 @@ var cloudNavClicked = function() {
         cloudsearchseiteAngezeigt = true;
         profilseiteAngezeigt = false;
         navbarMiddleStyle();
+
+        ocument.getElementById('resultpage_inhalt').style.display = 'none';
+        document.getElementById('startseiten_inhalt').style.display = 'none';
+
     });
 }
 
-var setRezepteErgebnissSeite = function() {
+var onRandomRecipeClicked = function() {
+
+    $(".gericht").click(function() {
+        id = this.id;
+        name = document.getElementById(id).innerText;
+        setRezepteErgebnissSeite(name);
+
+    });
+}
+
+var setRezepteErgebnissSeite = function(name) {
+
+    document.getElementById('resultpage_inhalt').style.display = 'block';
+    document.getElementById('startseiten_inhalt').style.display = 'none';
+
 	var beispielrezepte = new Array();
-	var rezept1= new Rezept("Gulasch", "2", "Mittel", "Hauptgericht");
+	var rezept1= new Rezept(name, "2", "Mittel", "Hauptgericht");
 	beispielrezepte.push(rezept1);
 
 	document.getElementById("rezept_name").innerHTML = beispielrezepte[0].name;
@@ -200,11 +221,10 @@ var App = {
 	onRecipeSearchButtonClicked();
 	onLoginButtonClicked();
 	onShuffleButtonClicked();
+    onRandomRecipeClicked();
 
     recipeNavClicked();
     cloudNavClicked();
-
-	//setRezepteErgebnissSeite();
 
 	navbarMiddleStyle();
 	updateRandomSpeisen();
