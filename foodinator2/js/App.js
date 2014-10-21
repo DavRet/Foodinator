@@ -5,7 +5,7 @@ var rezepteseiteAngezeigt = false;
 var cloudsearchseiteAngezeigt = false;
 var profilseiteAngezeigt = false;
 
-var newRandom = ["Gulasch","Schnitzel","Suppe","Salat","Reis","Nudeln"];
+var newRandomRecipes = ["Gulasch","Schnitzel","Suppe","Salat","Reis","Nudeln", "Pizza"];
 
 function Rezept(name, rating, aufwand, menueart) {
   this.name = name;
@@ -82,23 +82,22 @@ var updateRandomSpeisen = function() {
 //Hier muss noch ein RandomGenerator rein der aus der Datenbank random Hauptspeisen reinlädt
 var updateHauptspeisen = function() {
 		for (i = 1; i < 7; i++) {
-		document.getElementById("hauptspeise_gericht" + i).innerHTML = newRandom[i];
+		document.getElementById("hauptspeise_gericht" + i).innerHTML = newRandomRecipes[Math.floor((Math.random() * 5) + 1)];
 		}
 }
 
 //Hier muss noch ein RandomGenerator rein der aus der Datenbank random Nach/Vorspeisen reinlädt
 var updateVorspeisenAndNachspeisen = function() {
 		for (i = 1; i < 5; i++) {
-			document.getElementById("nachspeise_gericht" + i).innerHTML = newRandom[i];
+			document.getElementById("nachspeise_gericht" + i).innerHTML = newRandomRecipes[Math.floor((Math.random() * 5) + 1)];
 		};
 		for (i = 1; i < 5; i++) {
-			document.getElementById("vorspeise_gericht" + i).innerHTML = newRandom[i];
+			document.getElementById("vorspeise_gericht" + i).innerHTML = newRandomRecipes[Math.floor((Math.random() * 5) + 1)];
 		};
 }
 
 //Wenn der Shuffle Button geklickt wird, werden durch updateHauptspeisen und updateVorspeisenAndNachspeisen erneut random Gerichte geladen
 var onShuffleButtonClicked = function() {
-    console.log("shuffle");
 		document.getElementById("shuffle_button").onclick = function() {
 		updateRandomSpeisen();
 	}
@@ -144,6 +143,9 @@ var recipeNavClicked = function() {
         cloudsearchseiteAngezeigt = false;
         profilseiteAngezeigt = false;
         navbarMiddleStyle();
+
+        document.getElementById('resultpage_inhalt').style.display = 'block';
+        document.getElementById('startseiten_inhalt').style.display = 'none';
     });
 }
 
@@ -182,6 +184,15 @@ var getRatingPic = function(rating) {
 	return imgsrc;
 }
 
+var updateLayout = function() {
+    console.log("update");
+    document.getElementById('resultpage_inhalt').style.display = 'none';
+
+    document.getElementById("cloud_search_nav").onclick = function() {
+        document.getElementById("startseiten_inhalt").style.visibility='hidden';
+    }
+}
+
 
 var App = {
     init: function () {
@@ -193,16 +204,19 @@ var App = {
     recipeNavClicked();
     cloudNavClicked();
 
-	setRezepteErgebnissSeite();
+	//setRezepteErgebnissSeite();
 
 	navbarMiddleStyle();
-	//updateRandomSpeisen();
+	updateRandomSpeisen();
+    updateLayout();
 	
 
 
-		document.getElementById("cloud_search_nav").onclick = function() {
-			document.getElementById("startseiten_inhalt").style.visibility='hidden';
-		}}
+
+
+
+
+		}
 }
 
 
