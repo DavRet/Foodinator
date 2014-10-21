@@ -21,58 +21,57 @@ var navbarMiddleStyle = function() {
 	var cloud_nav = document.getElementById("cloud_search_nav");
 	var profile_nav = document.getElementById("profile_nav");
 
-    // test
-    //test 2.0
+ if (startseiteAngezeigt) {
+ home_nav.style.color = "#99cc67";
+ home_nav.style.backgroundColor = "#336601";
+ } else {
+ home_nav.style.color = "#336601";
+ home_nav.style.backgroundColor = "#99cc67";
+ $("#home_nav").mouseenter(function() {
+ $(this).css("background", "#336601").css("color", "#99cc67");
+ }).mouseleave(function() {
+ $(this).css("background", "#99cc67").css("color", "#336601");
+ });
+ }
+ if (rezepteseiteAngezeigt) {
+ rezept_nav.style.color = "#99cc67";
+ rezept_nav.style.backgroundColor = "#336601";
+ } else {
+ rezept_nav.style.color = "#336601";
+ rezept_nav.style.backgroundColor = "#99cc67";
+ $("#recipe_search_nav").mouseenter(function() {
+ $(this).css("background", "#336601").css("color", "#99cc67");
+ }).mouseleave(function() {
+ $(this).css("background", "#99cc67").css("color", "#336601");
+ });
+ }
+ if (cloudsearchseiteAngezeigt) {
+ cloud_nav.style.color = "#99cc67";
+ cloud_nav.style.backgroundColor = "#336601";
+ } else {
+ cloud_nav.style.color = "#336601";
+ cloud_nav.style.backgroundColor = "#99cc67";
+ $("#cloud_search_nav").mouseenter(function() {
+ $(this).css("background", "#336601").css("color", "#99cc67");
+ }).mouseleave(function() {
+ $(this).css("background", "#99cc67").css("color", "#336601");
+ });
+ }
+ if (profilseiteAngezeigt) {
+ profile_nav.style.color = "#99cc67";
+ profile_nav.style.backgroundColor = "#336601";
+ } else {
+ profile_nav.style.color = "#336601";
+ profile_nav.style.backgroundColor = "#99cc67";
+ $("#profile_nav").mouseenter(function() {
+ $(this).css("background", "#336601").css("color", "#99cc67");
+ }).mouseleave(function() {
+ $(this).css("background", "#99cc67").css("color", "#336601");
+ });
+ }
 
-	if (startseiteAngezeigt) {
-		home_nav.style.color = "#99cc67";
-		home_nav.style.backgroundColor = "#336601";
-	} else {
-		home_nav.style.color = "#336601";
-		home_nav.style.backgroundColor = "#99cc67";
-		$("#home_nav").mouseenter(function() {
-    		$(this).css("background", "#336601").css("color", "#99cc67");
-		}).mouseleave(function() {
-    		$(this).css("background", "#99cc67").css("color", "#336601");
-		});
-	}
-	if (rezepteseiteAngezeigt) {
-		rezept_nav.style.color = "#99cc67";
-		rezept_nav.style.backgroundColor = "#336601";
-	} else {
-		rezept_nav.style.color = "#336601";
-		rezept_nav.style.backgroundColor = "#99cc67";
-		$("#recipe_search_nav").mouseenter(function() {
-    		$(this).css("background", "#336601").css("color", "#99cc67");
-		}).mouseleave(function() {
-    		$(this).css("background", "#99cc67").css("color", "#336601");
-		});
-	}
-	if (cloudsearchseiteAngezeigt) {
-		cloud_nav.style.color = "#99cc67";
-		cloud_nav.style.backgroundColor = "#336601";
-	} else {
-		cloud_nav.style.color = "#336601";
-		cloud_nav.style.backgroundColor = "#99cc67";
-		$("#cloud_search_nav").mouseenter(function() {
-    		$(this).css("background", "#336601").css("color", "#99cc67");
-		}).mouseleave(function() {
-    		$(this).css("background", "#99cc67").css("color", "#336601");
-		});
-	}
-	if (profilseiteAngezeigt) {
-		profile_nav.style.color = "#99cc67";
-		profile_nav.style.backgroundColor = "#336601";
-	} else {
-		profile_nav.style.color = "#336601";
-		profile_nav.style.backgroundColor = "#99cc67";
-		$("#profile_nav").mouseenter(function() {
-    		$(this).css("background", "#336601").css("color", "#99cc67");
-		}).mouseleave(function() {
-    		$(this).css("background", "#99cc67").css("color", "#336601");
-		});
-	}
-}
+ }
+
 
 var updateRandomSpeisen = function() {
 	updateHauptspeisen();
@@ -112,8 +111,6 @@ var onRecipeSearchButtonClicked = function() {
 		profilseiteAngezeigt = false;
 		navbarMiddleStyle();
 
-        document.getElementById('resultpage_inhalt').style.display = 'block';
-        document.getElementById('startseiten_inhalt').style.display = 'none';
 	}
 }
 
@@ -125,29 +122,38 @@ var onCloudSearchButtonClicked = function() {
 		cloudsearchseiteAngezeigt = true;
 		profilseiteAngezeigt = false;
 		navbarMiddleStyle();
+
 	}
 }
 
 //Einlogg-Button wird geklickt
 
 var onLoginButtonClicked = function() {
-	document.getElementById("login_button").onclick = function() {
-		$(document).ready(function(){
-        	$("#navbar_left").load("navbar_left_logged_in.html");
-    	});
-	}
+    document.getElementById("login_button").onclick = function() {
+        document.getElementById("navbar_left_logged_in").style.display = 'block';
+        document.getElementById("navbar_left_filters").style.display = 'block';
+        document.getElementById("navbar_left_not_logged_in").style.display = 'none';
+    }
+}
+
+//Auslogg-Button wird geklickt
+
+var onLogoutButtonClicked = function() {
+    document.getElementById("logout_button").onclick = function() {
+        document.getElementById("navbar_left_logged_in").style.display = 'none';
+        document.getElementById("navbar_left_filters").style.display = 'none';
+        document.getElementById("navbar_left_not_logged_in").style.display = 'block';
+    }
 }
 
 var recipeNavClicked = function() {
     document.getElementById("recipe_search_nav").addEventListener("click",function(e) {
         console.log("recipe clicked");
-        startseiteAngezeigt = false;
-        rezepteseiteAngezeigt = true;
-        cloudsearchseiteAngezeigt = false;
-        profilseiteAngezeigt = false;
-        navbarMiddleStyle();
 
-        setRezepteErgebnissSeite();
+
+        document.getElementById('resultpage_inhalt').style.display = 'block';
+        document.getElementById('startseiten_inhalt').style.display = 'none';
+
 
     });
 }
@@ -155,36 +161,40 @@ var recipeNavClicked = function() {
 var cloudNavClicked = function() {
     document.getElementById("cloud_search_nav").addEventListener("click",function(e) {
         console.log("cloud clicked");
-        startseiteAngezeigt = false;
-        rezepteseiteAngezeigt = false;
-        cloudsearchseiteAngezeigt = true;
-        profilseiteAngezeigt = false;
         navbarMiddleStyle();
 
-        ocument.getElementById('resultpage_inhalt').style.display = 'none';
+        document.getElementById('resultpage_inhalt').style.display = 'none';
         document.getElementById('startseiten_inhalt').style.display = 'none';
 
+        document.getElementById("cloud_search_nav").style.color = "#99cc67";
+        document.getElementById("cloud_search_nav").style.backgroundColor = "#336601";
+
+        document.getElementById("home_nav").style.color = "#336601";
+        document.getElementById("home_nav").style.backgroundColor = "#99cc67";
+
+        document.getElementById("rezept_nav").style.color = "#336601";
+        document.getElementById("rezept_nav").style.backgroundColor = "#99cc67";
+
+        document.getElementById("profile_nav").style.color = "#336601";
+        document.getElementById("profile_nav").style.backgroundColor = "#99cc67";
+
+
     });
 }
 
-var onRandomRecipeClicked = function() {
+var profileNavClicked = function() {
+    document.getElementById("profile_nav").addEventListener("click",function(e){
+        console.log("profile clicked");
+        navbarMiddleStyle();
 
-    $(".gericht").click(function() {
-        id = this.id;
-        name = document.getElementById(id).innerText;
-        art = document.getElementById(id).title;
-        setRezepteErgebnissSeite(name,art);
-
-    });
+        document.getElementById('resultpage_inhalt').style.display = 'none';
+        document.getElementById('startseiten_inhalt').style.display = 'none';
+    })
 }
 
-var setRezepteErgebnissSeite = function(name,art) {
-
-    document.getElementById('resultpage_inhalt').style.display = 'block';
-    document.getElementById('startseiten_inhalt').style.display = 'none';
-
+var setRezepteErgebnissSeite = function() {
 	var beispielrezepte = new Array();
-	var rezept1= new Rezept(name, Math.floor((Math.random() * 5) + 1), "Mittel", art);
+	var rezept1= new Rezept("Gulasch", "2", "Mittel", "Hauptgericht");
 	beispielrezepte.push(rezept1);
 
 	document.getElementById("rezept_name").innerHTML = beispielrezepte[0].name;
@@ -212,7 +222,15 @@ var updateLayout = function() {
 
     document.getElementById("cloud_search_nav").onclick = function() {
         document.getElementById("startseiten_inhalt").style.visibility='hidden';
+
     }
+
+    document.getElementById("navbar_left_logged_in").style.display = 'none';
+    document.getElementById("navbar_left_filters").style.display = 'none';
+    document.getElementById("navbar_left_not_logged_in").style.display = 'block';
+
+    document.getElementById("home_nav").style.color = "#99cc67";
+    document.getElementById("home_nav").style.backgroundColor = "#336601";
 }
 
 
@@ -221,13 +239,16 @@ var App = {
 	onCloudSearchButtonClicked(); 
 	onRecipeSearchButtonClicked();
 	onLoginButtonClicked();
+    onLogoutButtonClicked();
 	onShuffleButtonClicked();
-    onRandomRecipeClicked();
 
     recipeNavClicked();
     cloudNavClicked();
+    profileNavClicked();
 
-	navbarMiddleStyle();
+	//setRezepteErgebnissSeite();
+
+	//navbarMiddleStyle();
 	updateRandomSpeisen();
     updateLayout();
 	
