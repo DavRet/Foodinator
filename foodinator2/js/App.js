@@ -172,18 +172,19 @@ var onRandomRecipeClicked = function() {
     $(".gericht").click(function() {
         id = this.id;
         name = document.getElementById(id).innerText;
-        setRezepteErgebnissSeite(name);
+        art = document.getElementById(id).title;
+        setRezepteErgebnissSeite(name,art);
 
     });
 }
 
-var setRezepteErgebnissSeite = function(name) {
+var setRezepteErgebnissSeite = function(name,art) {
 
     document.getElementById('resultpage_inhalt').style.display = 'block';
     document.getElementById('startseiten_inhalt').style.display = 'none';
 
 	var beispielrezepte = new Array();
-	var rezept1= new Rezept(name, "2", "Mittel", "Hauptgericht");
+	var rezept1= new Rezept(name, Math.floor((Math.random() * 5) + 1), "Mittel", art);
 	beispielrezepte.push(rezept1);
 
 	document.getElementById("rezept_name").innerHTML = beispielrezepte[0].name;
