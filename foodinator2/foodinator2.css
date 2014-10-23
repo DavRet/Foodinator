@@ -128,7 +128,7 @@ body #navbar_middle li {
 
 body #navbar_middle a:link, a:visited {
     display: block;
-    width: 239.5px;
+    width: 239px;
     background-color: #99cc67;
     text-align: center;
     color: #336601;
@@ -310,13 +310,18 @@ body #zutaten_rating_button, #favoriten_button, #logout_button {
 	cursor: pointer;
 }
 
+body .toggled {
+    color: #99cc67;
+    background-color: #660300;
+}
+
 
 
 /* FOOTER */
 
 body #footer {
 	clear: both;
-	height 100px;
+	height: 100px;
 	width: 970px;
 	background-color: #99cc67;
 
@@ -490,7 +495,7 @@ body #hauptspeise_gericht1, #hauptspeise_gericht3, #hauptspeise_gericht5 {
 
 /* CONTENT_RECIPE_SEARCH */
 
-body #resultpage_inhalt {
+body .results {
 	border: 3px solid #336601 ;
   	border-radius: 7px;
   	color:#336601;
