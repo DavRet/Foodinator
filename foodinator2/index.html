@@ -39,7 +39,7 @@
 
         <div id="navbar_middle">
           <ul id="nav_list">
-            <li id="homeNav"><a id="home_nav" href="index.html"><span  class="navbar_middle_element">Startseite</span></a></li>
+            <li id="homeNav"><a id="home_nav" href="#"><span  class="navbar_middle_element">Startseite</span></a></li>
             <li id="recipeNav"><a id="recipe_search_nav" href="#"><span class="navbar_middle_element">Rezepte</span></a></li>
             <li id="cloudNav"><a id="cloud_search_nav" href="#"><span class="navbar_middle_element">Cloud-Search</span></a></li>
             <li id="profileNav"><a id="profile_nav" href="#"><span class="navbar_middle_element">Profil</span></a></li>
@@ -98,9 +98,9 @@
           </div>
           <div id="rating_text">
             <span class="navbar_left_recipefilter" >Rating:</span>
-            <form> <div> <input class="checkbox" type="checkbox" /> <img src="img/gruener_daumen.png" alt="Gutes Rating" class="daumen_picture"/> </div> </form>
-            <form> <div> <input class="checkbox" type="checkbox" />  <img src="img/gelber_daumen.png" alt="Schlechtes Rating" class="daumen_picture"/> </div> </form>
-            <form> <div> <input class="checkbox" type="checkbox" /> <img src="img/roter_daumen.png" alt="Mittleres Rating" class="daumen_picture"/></div> </form>
+            <form> <div> <input id="filterGood" name="good" class="checkbox" type="checkbox" /> <img src="img/gruener_daumen.png" alt="Gutes Rating" class="daumen_picture"/> </div> </form>
+            <form> <div> <input id="filterMiddle" class="checkbox" type="checkbox" />  <img src="img/gelber_daumen.png" alt="Schlechtes Rating" class="daumen_picture"/> </div> </form>
+            <form> <div> <input id="filterBad" class="checkbox" type="checkbox" /> <img src="img/roter_daumen.png" alt="Mittleres Rating" class="daumen_picture"/></div> </form>
           </div>
           <button id="filter_button">Filter Anwenden</button>
           </div>
@@ -109,15 +109,57 @@
         
         <div id="website_content">
 
-        <div id="resultpage_inhalt" class="results">
-          <img id="rezept_bild" alt="Rezept" src="img/Foodinator-Logo-Version-2.jpg" />
-          <div id="rezept_ergebnis">
-            <span class= "menuepunkt" id="rezept_name"> Name des Gerichts</span> </br>
-            <span class= "menuepunkt" id="rezept_menueart">Menüart</span> </br>
-            <span class= "menuepunkt" id="rezept_aufwand">Aufwand</span> </br>
+        <div id="resultpage_inhalt1" class="results">
+          <img class="rezept_bild" id="rezept_bild1" alt="Rezept" src="img/Foodinator-Logo-Version-2.jpg" />
+          <div class="rezept_ergebnis" id="rezept_ergebnis1">
+            <span class= "menuepunkt, rezept_name" id="rezept_name1"> Name des Gerichts</span> </br>
+            <span class= "menuepunkt" id="rezept_menueart1">Menüart</span> </br>
+            <span class= "menuepunkt" id="rezept_aufwand1">Aufwand</span> </br>
+              <button class="favoriteButton"  id="1">Zu Favoriten hinzufügen</button>
           </div>
-          <img id="rezept_rating" alt="Rating" src="img/gelber_daumen.png">
+          <img class="rezept_rating" id="rezept_rating1" alt="Rating" src="img/gelber_daumen.png">
         </div>
+
+            <div id="resultpage_inhalt2" class="results">
+                <img class="rezept_bild" id="rezept_bild2" alt="Rezept" src="img/Foodinator-Logo-Version-2.jpg" />
+                <div class="rezept_ergebnis" id="rezept_ergebnis2">
+                    <span class= "menuepunkt, rezept_name" id="rezept_name2"> Name des Gerichts</span> </br>
+                    <span class= "menuepunkt" id="rezept_menueart2">Menüart</span> </br>
+                    <span class= "menuepunkt" id="rezept_aufwand2">Aufwand</span> </br>
+                    <button class="favoriteButton" id="2">Zu Favoriten hinzufügen</button>
+                </div>
+                <img class="rezept_rating" id="rezept_rating2" alt="Rating" src="img/gelber_daumen.png">
+            </div>
+            <div id="resultpage_inhalt3" class="results">
+                <img class="rezept_bild" id="rezept_bild3" alt="Rezept" src="img/Foodinator-Logo-Version-2.jpg" />
+                <div class="rezept_ergebnis" id="rezept_ergebnis3">
+                    <span class= "menuepunkt, rezept_name" id="rezept_name3"> Name des Gerichts</span> </br>
+                    <span class= "menuepunkt" id="rezept_menueart3">Menüart</span> </br>
+                    <span class= "menuepunkt" id="rezept_aufwand3">Aufwand</span> </br>
+                    <button class="favoriteButton" id="3">Zu Favoriten hinzufügen</button>
+                </div>
+                <img class="rezept_rating" id="rezept_rating3" alt="Rating" src="img/gelber_daumen.png">
+            </div>
+            <div id="resultpage_inhalt4" class="results">
+                <img class="rezept_bild" id="rezept_bild4" alt="Rezept" src="img/Foodinator-Logo-Version-2.jpg" />
+                <div class="rezept_ergebnis" id="rezept_ergebnis4">
+                    <span class= "menuepunkt, rezept_name" id="rezept_name4"> Name des Gerichts</span> </br>
+                    <span class= "menuepunkt" id="rezept_menueart4">Menüart</span> </br>
+                    <span class= "menuepunkt" id="rezept_aufwand4">Aufwand</span> </br>
+                    <button class="favoriteButton"  id="4">Zu Favoriten hinzufügen</button>
+                </div>
+                <img class="rezept_rating" id="rezept_rating4" alt="Rating" src="img/gelber_daumen.png">
+            </div>
+            <div id="resultpage_inhalt5" class="results">
+                <img class="rezept_bild" id="rezept_bild5" alt="Rezept" src="img/Foodinator-Logo-Version-2.jpg" />
+                <div class="rezept_ergebnis" id="rezept_ergebnis5">
+                    <span class= "menuepunkt, rezept_name" id="rezept_name5"> Name des Gerichts</span> </br>
+                    <span class= "menuepunkt" id="rezept_menueart5">Menüart</span> </br>
+                    <span class= "menuepunkt" id="rezept_aufwand5">Aufwand</span> </br>
+                    <button class="favoriteButton" id="5">Zu Favoriten hinzufügen</button>
+                </div>
+                <img class="rezept_rating" id="rezept_rating5" alt="Rating" src="img/gelber_daumen.png">
+            </div>
         
         
 

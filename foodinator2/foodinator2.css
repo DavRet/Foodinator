@@ -495,7 +495,7 @@ body #hauptspeise_gericht1, #hauptspeise_gericht3, #hauptspeise_gericht5 {
 
 /* CONTENT_RECIPE_SEARCH */
 
-body .results {
+body .results, .favoriteContent  {
 	border: 3px solid #336601 ;
   	border-radius: 7px;
   	color:#336601;
@@ -506,17 +506,17 @@ body .results {
   	margin:15px;
 }
 
-body #rezept_bild, #rezept_rating { 
+body .rezept_bild, .rezept_rating {
 	width: 100px;
 	height: 80px;
 	float:left;
 }
 
-body #rezept_ergebnis {
+body .rezept_ergebnis {
 	float:left;
 	overflow: hidden;
 }
-body #rezept_name {
+body .rezept_name {
     font-weight: bold;
     text-decoration: underline;
 }

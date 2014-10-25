@@ -2,6 +2,11 @@ var newRandom = "randomGericht";
 var loginStatus = false;
 
 var newRandomRecipes = ["Gulasch","Schnitzel","Suppe","Salat","Reis","Nudeln", "Pizza"];
+var favorites = new Array();
+
+var ratingGood = true;
+var ratingMiddle = true;
+var ratingBad = true;
 
 function Rezept(name, rating, aufwand, menueart) {
   this.name = name;
@@ -122,12 +127,18 @@ var onLogoutButtonClicked = function() {
             }
 }
 
+var startNavClicked = function() {
+    document.getElementById("home_nav").addEventListener("click",function(e) {
+        navbarMiddleStyle();
+
+        $('#startseiten_inhalt').show();
+        $('.results').hide();
+
+    });
+}
+
 var recipeNavClicked = function() {
     document.getElementById("recipe_search_nav").addEventListener("click",function(e) {
-        startseiteAngezeigt = false;
-        rezepteseiteAngezeigt = true;
-        cloudsearchseiteAngezeigt = false;
-        profilseiteAngezeigt = false;
         navbarMiddleStyle();
 
         setRecipePage();
@@ -170,55 +181,102 @@ var onRandomRecipeClicked = function() {
         id = this.id;
         name = document.getElementById(id).innerText;
         art = document.getElementById(id).title;
-        setRezepteErgebnissSeite(name,art);
+        setRezepteErgebnissSeiteSingle(name,art);
 
     });
 }
 
-var setRezepteErgebnissSeite = function(name,art) {
+var onFavoriteButtonClick = function() {
 
-    document.getElementById('resultpage_inhalt').style.display = 'block';
+    $(".favoriteButton").click(function() {
+    id = this.id;
+    newId = "favorite" + id;
+    newClass = "favoriteContent"
+    $("#resultpage_inhalt"+id).clone().attr("id",newId).attr("class",newClass).appendTo("#website_content");
+
+    $('.favoriteContent').hide();
+    });
+}
+
+var onFavoritesClick = function() {
+    $("#favoriten_button").click(function() {
+
+         $('#resultpage_inhalt').hide();
+         $('.results').hide();
+         $('#startseiten_inhalt').hide();
+         $('.favoriteContent').show();
+    });
+}
+
+var setRezepteErgebnissSeiteSingle = function(name,art) {
+
+
+    $('#resultpage_inhalt1').show();
     $('#startseiten_inhalt').hide();
+    $('.favoriteContent').hide();
 
 	var beispielrezepte = new Array();
 	var rezept1= new Rezept(name, Math.floor((Math.random() * 5) + 1), "Mittel", art);
 	beispielrezepte.push(rezept1);
 
-	document.getElementById("rezept_name").innerHTML = beispielrezepte[0].name;
-	document.getElementById("rezept_menueart").innerHTML = beispielrezepte[0].menueart;
-	document.getElementById("rezept_aufwand").innerHTML = beispielrezepte[0].aufwand;
-	document.getElementById("rezept_rating").src = getRatingPic(beispielrezepte[0].rating);
+	document.getElementById("rezept_name1").innerHTML = beispielrezepte[0].name;
+	document.getElementById("rezept_menueart1").innerHTML = beispielrezepte[0].menueart;
+	document.getElementById("rezept_aufwand1").innerHTML = beispielrezepte[0].aufwand;
+	document.getElementById("rezept_rating1").src = getRatingPic(beispielrezepte[0].rating);
 
 }
 
 var setRecipePage = function() {
     $('.results').show();
     $('#startseiten_inhalt').hide();
-
+    $('.favoriteContent').hide();
 
 
     var beispielrezepte = new Array();
 
 
-    for(i=2;i<6;i++) {
-    newId = "resultpage_inhalt" + i;
-    $("#resultpage_inhalt").clone().attr("id",newId).appendTo("#website_content");
-    }
 
 
-    $('#website_content').add('<div>Insert Div Content</div>');
 
-    for(i=0;i<7;i++) {
+    for(i=0;i<6;i++) {
 
         var rezept = new Rezept(newRandomRecipes[i], Math.floor((Math.random() * 5) + 1), "Mittel", "Art");
+
         beispielrezepte.push(rezept);
 
-        document.getElementById("rezept_name").innerHTML = beispielrezepte[i].name;
-        document.getElementById("rezept_menueart").innerHTML = beispielrezepte[i].menueart;
-        document.getElementById("rezept_aufwand").innerHTML = beispielrezepte[i].aufwand;
-        document.getElementById("rezept_rating").src = getRatingPic(beispielrezepte[i].rating);
+        console.log(beispielrezepte);
+
     }
 
+    for(i=1;i<6;i++) {
+        if(ratingGood == true && ratingMiddle == true && ratingBad == true)
+        {
+        document.getElementById("rezept_name"+i).innerHTML = beispielrezepte[i-1].name;
+        document.getElementById("rezept_menueart"+i).innerHTML = beispielrezepte[i-1].menueart;
+        document.getElementById("rezept_aufwand"+i).innerHTML = beispielrezepte[i-1].aufwand;
+        document.getElementById("rezept_rating"+i).src = getRatingPic(beispielrezepte[i-1].rating);
+        }
+
+        if(ratingGood == true && ratingMiddle == true && ratingBad == false)
+        {
+            if(beispielrezepte[i-1].rating > 2) {
+            document.getElementById("rezept_name"+i).innerHTML = beispielrezepte[i-1].name;
+            document.getElementById("rezept_menueart"+i).innerHTML = beispielrezepte[i-1].menueart;
+            document.getElementById("rezept_aufwand"+i).innerHTML = beispielrezepte[i-1].aufwand;
+            document.getElementById("rezept_rating"+i).src = getRatingPic(beispielrezepte[i-1].rating);
+            }
+        }
+
+        if(ratingGood == true && ratingMiddle == false && ratingBad == false)
+        {
+            if(beispielrezepte[i-1].rating > 3) {
+                document.getElementById("rezept_name"+i).innerHTML = beispielrezepte[i-1].name;
+                document.getElementById("rezept_menueart"+i).innerHTML = beispielrezepte[i-1].menueart;
+                document.getElementById("rezept_aufwand"+i).innerHTML = beispielrezepte[i-1].aufwand;
+                document.getElementById("rezept_rating"+i).src = getRatingPic(beispielrezepte[i-1].rating);
+            }
+        }
+    }
 }
 
 var getRatingPic = function(rating) {
@@ -233,13 +291,50 @@ var getRatingPic = function(rating) {
 	return imgsrc;
 }
 
-var updateLayout = function() {
-    console.log("update");
-    $('.results').hide();
+var checkFilters = function() {
+    $('#filterGood').prop('checked', true);
+    $('#filterMiddle').prop('checked', true);
+    $('#filterBad').prop('checked', true);
 
-    document.getElementById("cloud_search_nav").onclick = function() {
-        document.getElementById("startseiten_inhalt").style.visibility='hidden';
-    }
+
+    document.getElementById("filterGood").addEventListener("change",function(e) {
+         if( $('#filterGood').prop('checked') == false)
+         {
+             ratingGood = false;
+         }
+         else {
+             ratingGood = true;
+         }
+         })
+
+    document.getElementById("filterMiddle").addEventListener("change",function(e) {
+        if( $('#filterGood').prop('checked') == true)
+        {
+            ratingMiddle = false;
+        }
+
+        else {
+            ratingMiddle = true;
+        }
+    })
+
+    document.getElementById("filterBad").addEventListener("change",function(e) {
+        if( $('#filterGood').prop('checked') == true)
+        {
+            ratingBad = false;
+        }
+
+        else {
+            ratingBad = true;
+        }
+    })
+
+}
+
+var updateLayout = function() {
+    $('.results').hide();
+    $('#navbar_left_logged_in').hide();
+
 }
 
 
@@ -252,6 +347,11 @@ var App = {
 	onShuffleButtonClicked();
     onRandomRecipeClicked();
 
+    onFavoriteButtonClick();
+    onFavoritesClick();
+    onFavoritesClick();
+
+    startNavClicked();
     recipeNavClicked();
     cloudNavClicked();
     profileNavClicked();
@@ -260,7 +360,7 @@ var App = {
 	updateRandomSpeisen();
     updateLayout();
 	
-
+    checkFilters();
 
 
 
