@@ -6,182 +6,202 @@
         <title>Foodinator2</title>
 		    <link rel="stylesheet" type="text/css" href="foodinator2.css">
 
-    </head>
+        <script src="js/Solr.js"></script>
 
-    <body>
+        <script src="lib/ajax-solr-master/core/Core.js"></script>
+        <script src="lib/ajax-solr-master/core/AbstractManager.js"></script>
+        <script src="lib/ajax-solr-master/managers/Manager.jquery.js"></script>
 
-      <div id="content">
-
-
-        <div id="header">
-
-
-
-          <a href="index.html">
-            <img src="img/Foodinator-Logo-Version-2.jpg" alt="FoodiNator" id="picture"/>
-          </a>
-
-          <div id="searchfield_header">
-            <span class="line">
-              <input id="recipe_input" name="recipe_input" type="text" size="60" maxlength="50" placeholder="Nach Rezepten suchen..." autofocus >
-              <button id="normal_search_button">Search</button>
-            </span>
-            <br>
-
-            <span class="line">
-              <a id="cloud_search_ad_text" href="index.html">Du weißt nicht was du kochen sollst?</a>
-              <a id="cloud_search_button" >Cloud - Search</a>
-            </span>
-          </div>
+        <script src="lib/ajax-solr-master/core/Parameter.js"></script>
+        <script src="lib/ajax-solr-master/core/ParameterStore.js"></script>
+        <script src="lib/ajax-solr-master/core/AbstractWidget.js"></script>
+        //<script src="js/widgets/ResultWidget.js"></script>
+        <script src="lib/ajax-solr-master/widgets/jquery/PagerWidget.js"></script>
+        <script src="lib/ajax-solr-master/core/AbstractFacetWidget.js"></script>
+        <script src="lib/ajax-solr-master/core/AbstractTextWidget.js"></script>
+        //<script src="js/widgets/FacetWidget.js"></script>
+        //<script src="js/widgets/TagcloudWidget.js"></script>
+        //<script src="js/widgets/CurrentSearchWidget.js"></script>
+        //<script src="js/widgets/TextWidget.js"></script>
+        //<script src="lib/rateit/src/jquery.rateit.js"></script>
 
 
+  </head>
+
+  <body>
+
+    <div id="content">
+
+
+      <div id="header">
+
+
+
+        <a href="index.html">
+          <img src="img/Foodinator-Logo-Version-2.jpg" alt="FoodiNator" id="picture"/>
+        </a>
+
+        <div id="searchfield_header">
+          <span class="line">
+            <input id="recipe_input" name="recipe_input" type="text" size="60" maxlength="50" placeholder="Nach Rezepten suchen..." autofocus >
+            <button id="normal_search_button">Search</button>
+          </span>
+          <br>
+
+          <span class="line">
+            <a id="cloud_search_ad_text" href="index.html">Du weißt nicht was du kochen sollst?</a>
+            <a id="cloud_search_button" >Cloud - Search</a>
+          </span>
         </div>
 
-        <div id="navbar_middle">
-          <ul id="nav_list">
-            <li id="homeNav"><a id="home_nav" href="index.html"><span  class="navbar_middle_element">Startseite</span></a></li>
-            <li id="recipeNav"><a id="recipe_search_nav" href="#"><span class="navbar_middle_element">Rezepte</span></a></li>
-            <li id="cloudNav"><a id="cloud_search_nav" href="#"><span class="navbar_middle_element">Cloud-Search</span></a></li>
-            <li id="profileNav"><a id="profile_nav" href="#"><span class="navbar_middle_element">Profil</span></a></li>
-          </ul>
+
+      </div>
+
+      <div id="navbar_middle">
+        <ul id="nav_list">
+          <li id="homeNav"><a id="home_nav" href="index.html"><span  class="navbar_middle_element">Startseite</span></a></li>
+          <li id="recipeNav"><a id="recipe_search_nav" href="#"><span class="navbar_middle_element">Rezepte</span></a></li>
+          <li id="cloudNav"><a id="cloud_search_nav" href="#"><span class="navbar_middle_element">Cloud-Search</span></a></li>
+          <li id="profileNav"><a id="profile_nav" href="#"><span class="navbar_middle_element">Profil</span></a></li>
+        </ul>
+      </div>
+
+      <div id="navbar_left">
+
+       <div id="navbar_left_not_logged_in">
+        <span class="navbar_text">Bitte einloggen: </span><br>
+        <input class="navbar_input" id="input_username" type="text" maxlength="30" placeholder="Benutzername"><br>
+
+        <form action="input_password.htm">
+          <input class="navbar_input" id=" input_userpassword" name="password" type="password"  maxlength="12" placeholder="Passwort">
+        </form>
+
+        <button id="login_button">Einloggen</button><br>
+
+        <span class="navbar_text">Noch kein Mitglied?</span><br>
+        <a id="register_button" href="http://www.tagesschau.de/">Jetzt Registrieren</a><br>
         </div>
 
-        <div id="navbar_left">
 
-         <div id="navbar_left_not_logged_in">
-          <span class="navbar_text">Bitte einloggen: </span><br>
-          <input class="navbar_input" id="input_username" type="text" maxlength="30" placeholder="Benutzername"><br>
-
-          <form action="input_password.htm">
-            <input class="navbar_input" id=" input_userpassword" name="password" type="password"  maxlength="12" placeholder="Passwort">
-          </form>
-
-          <button id="login_button">Einloggen</button><br>
-
-          <span class="navbar_text">Noch kein Mitglied?</span><br>
-          <a id="register_button" href="http://www.tagesschau.de/">Jetzt Registrieren</a><br>
-          </div>
-
-
-          <div id="navbar_left_logged_in">
-            <img id="profile_picture" alt="Profile Picture" src="img/profile_pic.png" />
-            <span id="welcome_text_1">Wilkommen</span> </br>
-            <span id="welcome_text_2">Zurück!</span> </br>
-            <span id="user_name">FoodLover</span></br>
-            <button id="logout_button">Logout</button></br>
-            <button id ="zutaten_rating_button">Zutaten Rating</button></br>
-            <button id="favoriten_button">Favoriten</button></br>
-          </div>
-
-          
-                  <div id="navbar_left_filters">
-          <div id="aufwand_text">
-            <span class="navbar_left_recipefilter">Aufwand:</span>
-            <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Leicht </label> </div> </form>
-            <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Mittel </label> </div> </form>
-            <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Schwer </label> </div> </form>
-          </div>
-
-          <div id="menueart_text">
-            <span class="navbar_left_recipefilter" >Speiseart:</span>
-            <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Frühstück </label> </div> </form>
-            <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Hauptgericht </label> </div> </form>
-            <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Snack </label> </div> </form>
-            <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Dessert </label> </div> </form>
-          </div>
-
-          <div id="dauer_text">
-            <span class="navbar_left_recipefilter" >Dauer:</span>
-            <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Schnell </label> </div> </form>
-            <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Mittel </label> </div> </form>
-            <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Lang</label> </div> </form>
-          </div>
-          <div id="rating_text">
-            <span class="navbar_left_recipefilter" >Rating:</span>
-            <form> <div> <input class="checkbox" type="checkbox" /> <img src="img/gruener_daumen.png" alt="Gutes Rating" class="daumen_picture"/> </div> </form>
-            <form> <div> <input class="checkbox" type="checkbox" />  <img src="img/gelber_daumen.png" alt="Schlechtes Rating" class="daumen_picture"/> </div> </form>
-            <form> <div> <input class="checkbox" type="checkbox" /> <img src="img/roter_daumen.png" alt="Mittleres Rating" class="daumen_picture"/></div> </form>
-          </div>
-          <button id="filter_button">Filter Anwenden</button>
-          </div>
-
-        </div>  
-        
-        <div id="website_content">
-
-        <div id="resultpage_inhalt" class="results">
-          <img id="rezept_bild" alt="Rezept" src="img/Foodinator-Logo-Version-2.jpg" />
-          <div id="rezept_ergebnis">
-            <span class= "menuepunkt" id="rezept_name"> Name des Gerichts</span> </br>
-            <span class= "menuepunkt" id="rezept_menueart">Menüart</span> </br>
-            <span class= "menuepunkt" id="rezept_aufwand">Aufwand</span> </br>
-          </div>
-          <img id="rezept_rating" alt="Rating" src="img/gelber_daumen.png">
-        </div>
-        
-        
-
-        <div id="startseiten_inhalt">
-          <div id="gerichte_text"> Du weißt nicht was du heute kochen willst...? Hier ein paar Ideen! </div>
-          <div class="gericht_container" id="hauptspeisen">
-            <button id="hauptspeisen_header">Hauptgerichte</button>
-            <ul id="alle_gerichte">
-              <li> <a class="gericht" id="hauptspeise_gericht1" title="Hauptspeise"> Gericht 1 </a></li>
-              <li> <a class="gericht" id="hauptspeise_gericht2" title="Hauptspeise"> Gericht 2 </a></li>
-              <li><a class="gericht" id="hauptspeise_gericht3" title="Hauptspeise"> Gericht 3 </a></li>
-              <li> <a class="gericht" id="hauptspeise_gericht4" title="Hauptspeise"> Gericht 4 </a> </li>
-              <li> <a class="gericht" id="hauptspeise_gericht5" title="Hauptspeise"> Gericht 5 </a> </li>
-              <li> <a class="gericht" id="hauptspeise_gericht6" title="Hauptspeise"> Gericht 6 </a> </li>
-            </ul>
-          </div>
-          <div class="gericht_container" id="vorspeisen">
-            <button id="vorspeisen_header">Vorspeisen</button>
-
-            <ul>
-            <li> <a class="gericht" id="vorspeise_gericht1" title="Vorspeise"> Gericht 1 </a></li>
-            <li> <a class="gericht" id="vorspeise_gericht2" title="Vorspeise"> Gericht 2 </a></li>
-            <li> <a class="gericht" id="vorspeise_gericht3" title="Vorspeise"> Gericht 3</a> </li>
-            <li> <a class="gericht" id="vorspeise_gericht4" title="Vorspeise"> Gericht 4</a> </li>
-            </ul>
-          </div>
-          <div class="gericht_container"  id="nachspeisen">
-            <button id="nachspeisen_header">Nachspeisen</button>
-            <ul>
-            <li> <a class="gericht" id="nachspeise_gericht1" title="Nachspeise"> Gericht 1 </a> </li>
-            <li> <a class="gericht" id="nachspeise_gericht2" title="Nachspeise"> Gericht 2 </a> </li>
-            <li> <a class="gericht" id="nachspeise_gericht3" title="Nachspeise"> Gericht 3</a> </li>
-            <li> <a class="gericht" id="nachspeise_gericht4" title="Nachspeise"> Gericht 4</a> </li>
-            </ul>
-          </div>
-          <div id="shuffle_button_container"> <button id="shuffle_button">Neue Rezepte Anzeigen</button> </div>
-        </div>
+        <div id="navbar_left_logged_in">
+          <img id="profile_picture" alt="Profile Picture" src="img/profile_pic.png" />
+          <span id="welcome_text_1">Wilkommen</span> </br>
+          <span id="welcome_text_2">Zurück!</span> </br>
+          <span id="user_name">FoodLover</span></br>
+          <button id="logout_button">Logout</button></br>
+          <button id ="zutaten_rating_button">Zutaten Rating</button></br>
+          <button id="favoriten_button">Favoriten</button></br>
         </div>
 
-        <div id="footer">
-        © foodiNator (Nutz, Retzer, Schlott, Soudet, Waldmann)
+
+                <div id="navbar_left_filters">
+        <div id="aufwand_text">
+          <span class="navbar_left_recipefilter">Aufwand:</span>
+          <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Leicht </label> </div> </form>
+          <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Mittel </label> </div> </form>
+          <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Schwer </label> </div> </form>
+        </div>
+
+        <div id="menueart_text">
+          <span class="navbar_left_recipefilter" >Speiseart:</span>
+          <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Frühstück </label> </div> </form>
+          <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Hauptgericht </label> </div> </form>
+          <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Snack </label> </div> </form>
+          <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Dessert </label> </div> </form>
+        </div>
+
+        <div id="dauer_text">
+          <span class="navbar_left_recipefilter" >Dauer:</span>
+          <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Schnell </label> </div> </form>
+          <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Mittel </label> </div> </form>
+          <form> <div> <label class="navabar_left_recipefilter_auswahl"><input class="checkbox" type="checkbox" /> Lang</label> </div> </form>
+        </div>
+        <div id="rating_text">
+          <span class="navbar_left_recipefilter" >Rating:</span>
+          <form> <div> <input class="checkbox" type="checkbox" /> <img src="img/gruener_daumen.png" alt="Gutes Rating" class="daumen_picture"/> </div> </form>
+          <form> <div> <input class="checkbox" type="checkbox" />  <img src="img/gelber_daumen.png" alt="Schlechtes Rating" class="daumen_picture"/> </div> </form>
+          <form> <div> <input class="checkbox" type="checkbox" /> <img src="img/roter_daumen.png" alt="Mittleres Rating" class="daumen_picture"/></div> </form>
+        </div>
+        <button id="filter_button">Filter Anwenden</button>
         </div>
 
       </div>
 
-      <script src="libs/jquery-2.1.1.js"></script>
-      <script src="js/App.js"></script>
+      <div id="website_content">
+
+      <div id="resultpage_inhalt" class="results">
+        <img id="rezept_bild" alt="Rezept" src="img/Foodinator-Logo-Version-2.jpg" />
+        <div id="rezept_ergebnis">
+          <span class= "menuepunkt" id="rezept_name"> Name des Gerichts</span> </br>
+          <span class= "menuepunkt" id="rezept_menueart">Menüart</span> </br>
+          <span class= "menuepunkt" id="rezept_aufwand">Aufwand</span> </br>
+        </div>
+        <img id="rezept_rating" alt="Rating" src="img/gelber_daumen.png">
+      </div>
 
 
-      <script type="text/html" id="startseiten_content_tpl">
 
+      <div id="startseiten_inhalt">
+        <div id="gerichte_text"> Du weißt nicht was du heute kochen willst...? Hier ein paar Ideen! </div>
+        <div class="gericht_container" id="hauptspeisen">
+          <button id="hauptspeisen_header">Hauptgerichte</button>
+          <ul id="alle_gerichte">
+            <li> <a class="gericht" id="hauptspeise_gericht1" title="Hauptspeise"> Gericht 1 </a></li>
+            <li> <a class="gericht" id="hauptspeise_gericht2" title="Hauptspeise"> Gericht 2 </a></li>
+            <li><a class="gericht" id="hauptspeise_gericht3" title="Hauptspeise"> Gericht 3 </a></li>
+            <li> <a class="gericht" id="hauptspeise_gericht4" title="Hauptspeise"> Gericht 4 </a> </li>
+            <li> <a class="gericht" id="hauptspeise_gericht5" title="Hauptspeise"> Gericht 5 </a> </li>
+            <li> <a class="gericht" id="hauptspeise_gericht6" title="Hauptspeise"> Gericht 6 </a> </li>
+          </ul>
+        </div>
+        <div class="gericht_container" id="vorspeisen">
+          <button id="vorspeisen_header">Vorspeisen</button>
+
+          <ul>
+          <li> <a class="gericht" id="vorspeise_gericht1" title="Vorspeise"> Gericht 1 </a></li>
+          <li> <a class="gericht" id="vorspeise_gericht2" title="Vorspeise"> Gericht 2 </a></li>
+          <li> <a class="gericht" id="vorspeise_gericht3" title="Vorspeise"> Gericht 3</a> </li>
+          <li> <a class="gericht" id="vorspeise_gericht4" title="Vorspeise"> Gericht 4</a> </li>
+          </ul>
+        </div>
+        <div class="gericht_container"  id="nachspeisen">
+          <button id="nachspeisen_header">Nachspeisen</button>
+          <ul>
+          <li> <a class="gericht" id="nachspeise_gericht1" title="Nachspeise"> Gericht 1 </a> </li>
+          <li> <a class="gericht" id="nachspeise_gericht2" title="Nachspeise"> Gericht 2 </a> </li>
+          <li> <a class="gericht" id="nachspeise_gericht3" title="Nachspeise"> Gericht 3</a> </li>
+          <li> <a class="gericht" id="nachspeise_gericht4" title="Nachspeise"> Gericht 4</a> </li>
+          </ul>
+        </div>
+        <div id="shuffle_button_container"> <button id="shuffle_button">Neue Rezepte Anzeigen</button> </div>
+      </div>
+      </div>
+
+      <div id="footer">
+      © foodiNator (Nutz, Retzer, Schlott, Soudet, Waldmann)
+      </div>
+
+    </div>
+
+    <script src="libs/jquery-2.1.1.js"></script>
+    <script src="js/App.js"></script>
+
+
+    <script type="text/html" id="startseiten_content_tpl">
+
+    </script>
+
+      <script>
+          App.init();
       </script>
 
-        <script>
-            App.init();
-        </script>
-        
-        <script type="js/layout.js"></script>
-        <script src="js/user.js"></script>
+      <script type="js/layout.js"></script>
+      <script src="js/user.js"></script>
 
-        <script type="text/html" id="content-tpl">
-            <li data-id="<%= id %>">
-                <a href="#"><%= title %></a>
-            </li>
-        </script>
-    </body>
+      <script type="text/html" id="content-tpl">
+          <li data-id="<%= id %>">
+              <a href="#"><%= title %></a>
+          </li>
+      </script>
+  </body>
 </html>
